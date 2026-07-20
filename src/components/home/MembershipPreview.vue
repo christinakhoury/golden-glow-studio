@@ -1,11 +1,11 @@
 <template>
-  <section id="membership" class="py-36 bg-[#FAF8F5] text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
+  <section id="membership" class="py-16 md:py-36 bg-[#FAF8F5] text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
     
     <!-- LUXURY GRAPHIC GRAPH MATRIX -->
     <div class="absolute inset-y-0 left-12 w-px bg-stone-200/40 hidden lg:block"></div>
     <div class="absolute inset-y-0 right-12 w-px bg-stone-200/40 hidden lg:block"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         
         <!-- STICKY EDITORIAL CONTROL ANCHOR (Left Column) -->
@@ -14,7 +14,7 @@
             <span class="text-[#D4AF37] text-xs tracking-[0.5em] uppercase font-bold block">
               // Exclusive Membership
             </span>
-            <h2 class="text-5xl md:text-6xl lg:text-7xl font-light text-stone-900 tracking-tighter leading-[0.95]" style="font-family: 'Playfair Display', serif;">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-stone-900 tracking-tighter leading-[0.95]" style="font-family: 'Playfair Display', serif;">
               Join Glow <br><span class="italic font-serif font-normal text-[#D4AF37]">Rewards</span>
             </h2>
           </div>

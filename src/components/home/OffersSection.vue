@@ -1,13 +1,13 @@
 <template>
-  <section id="offers" class="py-32 lg:py-44 bg-[#FAF8F5] text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/20">
+  <section id="offers" class="py-16 md:py-32 lg:py-44 bg-[#FAF8F5] text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/20">
     
     <!-- HIGH-FASHION BACKGROUND TECH ARTIFACTS -->
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#D4AF37]/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-0 left-12 w-px h-full bg-stone-200/50 hidden lg:block"></div>
     <div class="absolute top-0 right-1/3 w-px h-full bg-stone-200/30 hidden lg:block"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24 items-start">
         
         <!-- SIDEBAR LEFT: ASYMMETRIC STICKY HERO HEADER -->
         <div class="lg:col-span-4 lg:sticky lg:top-36 space-y-8" data-aos="fade-right" data-aos-duration="1200">
@@ -15,7 +15,7 @@
             <span class="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold flex items-center gap-3">
               <span class="w-8 h-px bg-[#D4AF37]"></span> Curated Pairings
             </span>
-            <h2 class="text-5xl md:text-6xl font-light text-stone-900 tracking-tight leading-none" style="font-family: 'Playfair Display', serif;">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-light text-stone-900 tracking-tight leading-none" style="font-family: 'Playfair Display', serif;">
               Exclusive <br><span class="italic font-normal text-[#D4AF37]">Offers</span>
             </h2>
           </div>
@@ -39,7 +39,7 @@
             v-for="(offer, idx) in offers" 
             :key="offer.title" 
             :href="offer.link" 
-            class="group bg-white border border-stone-200/70 p-8 md:p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 transition-all duration-700 ease-out hover:border-stone-900 hover:bg-white hover:shadow-[0_40px_80px_-30px_rgba(0,0,0,0.06)] relative overflow-hidden" 
+            class="group bg-white border border-stone-200/70 p-5 sm:p-8 md:p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-5 md:gap-8 transition-all duration-700 ease-out hover:border-stone-900 hover:bg-white hover:shadow-[0_40px_80px_-30px_rgba(0,0,0,0.06)] relative overflow-hidden" 
             data-aos="fade-up"
             :data-aos-delay="idx * 100"
           >

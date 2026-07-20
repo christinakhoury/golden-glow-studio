@@ -1,16 +1,16 @@
 <template>
-  <div class="min-h-screen bg-[#FAF6F0] text-stone-800 antialiased pt-40 pb-32 relative overflow-hidden font-sans selection:bg-[#D4AF37]/10">
+  <div class="min-h-screen bg-[#FAF6F0] text-stone-800 antialiased pt-24 md:pt-40 pb-16 md:pb-32 relative overflow-hidden font-sans selection:bg-[#D4AF37]/10">
     
     <div class="absolute inset-y-0 left-12 w-px bg-stone-200/40 hidden lg:block"></div>
     <div class="absolute inset-y-0 right-12 w-px bg-stone-200/40 hidden lg:block"></div>
 
-    <section class="max-w-7xl mx-auto px-6 lg:px-16 mb-24 relative z-10" data-aos="fade-up" data-aos-duration="1000">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-stone-200 pb-16">
-        <div class="lg:col-span-7 space-y-4">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 mb-12 md:mb-24 relative z-10" data-aos="fade-up" data-aos-duration="1000">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start border-b border-stone-200 pb-8 md:pb-16">
+        <div class="lg:col-span-7 space-y-3 md:space-y-4">
           <span class="text-[#D4AF37] tracking-[0.4em] text-xs uppercase font-bold inline-flex items-center gap-3">
             <span class="w-6 h-px bg-[#D4AF37]"></span> Salon Menu Portfolio
           </span>
-          <h1 class="text-5xl md:text-7xl font-light text-stone-900 tracking-tighter leading-none capitalize" style="font-family: 'Playfair Display', serif;">
+          <h1 class="text-3xl sm:text-5xl md:text-7xl font-light text-stone-900 tracking-tighter leading-none capitalize" style="font-family: 'Playfair Display', serif;">
             {{ serviceType }} Services
           </h1>
         </div>
@@ -27,12 +27,12 @@
       <p class="text-xs font-mono tracking-widest text-stone-400 uppercase">Synchronizing with Maison Registry...</p>
     </section>
 
-    <section v-else class="max-w-7xl mx-auto px-6 lg:px-16 mb-32 relative z-10">
+    <section v-else class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 mb-16 md:mb-32 relative z-10">
       <div v-if="filteredServices.length === 0" class="text-center py-12 border border-dashed border-stone-200 bg-white">
         <p class="text-sm font-light text-stone-400">No active variants found matching this salon collection directory.</p>
       </div>
 
-      <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
         <div 
           v-for="(item, idx) in filteredServices" 
           :key="item.id || item.name"
@@ -44,18 +44,19 @@
           <div class="absolute top-0 left-0 w-full h-0.5 bg-[#D4AF37] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-20"></div>
 
           <div>
-            <div class="w-full h-72 overflow-hidden relative bg-stone-100 border-b border-stone-100">
+            <div class="w-full h-48 sm:h-64 md:h-72 overflow-hidden relative bg-stone-100 border-b border-stone-100">
               <img 
                 :src="getServiceImage(item)" 
                 :alt="item.name"
                 class="w-full h-full object-cover grayscale-[10%] contrast-[102%] group-hover:scale-105 transition-transform duration-1000 ease-out"
+                @error="(e) => e.target.src = 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80'"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-stone-900/10 via-transparent to-transparent pointer-events-none"></div>
             </div>
 
-            <div class="p-8 lg:p-10">
+            <div class="p-4 sm:p-6 lg:p-10">
               <div class="flex justify-between items-baseline gap-4 mb-4">
-                <h3 class="text-2xl text-stone-900 font-light tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300" style="font-family: 'Playfair Display', serif;">
+                <h3 class="text-xl sm:text-2xl text-stone-900 font-light tracking-tight group-hover:text-[#D4AF37] transition-colors duration-300" style="font-family: 'Playfair Display', serif;">
                   <span class="mr-2 text-xl inline-block transition-transform duration-300 group-hover:scale-110">✨</span>
                   {{ item.name }}
                 </h3>
@@ -76,7 +77,7 @@
             </div>
           </div>
 
-          <div class="px-8 lg:px-10 pb-8 pt-6 border-t border-stone-100 flex justify-end">
+          <div class="px-4 sm:px-6 lg:px-10 pb-6 sm:pb-8 pt-5 md:pt-6 border-t border-stone-100 flex justify-end">
             <button 
               @click.stop="openServiceOptions(item)"
               class="inline-flex items-center gap-4 text-[11px] tracking-[0.25em] uppercase font-bold text-white bg-stone-900 hover:bg-[#D4AF37] px-8 py-4 transition-all duration-300 rounded-none shadow-sm"
@@ -94,7 +95,7 @@
     <Transition name="fade">
       <div v-if="selectedService" class="fixed inset-0 z-50 flex items-center justify-end bg-stone-900/40 backdrop-blur-sm" @click.self="closeServiceOptions">
         <Transition name="slide">
-          <div v-if="selectedService" class="w-full max-w-lg h-full bg-[#FAF6F0] shadow-2xl flex flex-col justify-between overflow-y-auto relative border-l border-stone-200">
+          <div v-if="selectedService" class="w-full sm:max-w-lg h-full bg-[#FAF6F0] shadow-2xl flex flex-col justify-between overflow-y-auto relative border-l border-stone-200">
             
             <button @click="closeServiceOptions" class="absolute top-6 right-6 text-stone-400 hover:text-stone-900 p-2 transition-transform duration-300 hover:rotate-90 z-30 bg-white/80 backdrop-blur-md rounded-full shadow-sm">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,7 +113,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-[#FAF6F0] via-transparent to-transparent"></div>
               </div>
 
-              <div class="space-y-2 px-8 md:px-10">
+              <div class="space-y-2 px-4 sm:px-6 md:px-10">
                 <span class="text-[#D4AF37] tracking-[0.3em] text-[10px] uppercase font-bold block">// Selected Service Ritual</span>
                 <h2 class="text-3xl font-light text-stone-900" style="font-family: 'Playfair Display', serif;">
                   {{ selectedService.name }} Options
@@ -121,7 +122,7 @@
                 </div>
               </div>
 
-              <div class="space-y-4 px-8 md:px-10">
+              <div class="space-y-4 px-4 sm:px-6 md:px-10">
                 <div 
                   v-for="(tier, idx) in derivedTiers" 
                   :key="idx"
@@ -162,7 +163,7 @@
               </div>
             </div>
 
-            <div class="p-8 md:p-10 pt-6 border-t border-stone-200 space-y-3 bg-[#FAF6F0] sticky bottom-0 z-20">
+            <div class="p-4 sm:p-6 md:p-10 pt-4 md:pt-6 border-t border-stone-200 space-y-3 bg-[#FAF6F0] sticky bottom-0 z-20">
               <button @click="closeServiceOptions" class="w-full text-center block text-[10px] tracking-widest uppercase font-bold text-stone-400 hover:text-stone-700 transition-colors py-1">
                 Close Menu
               </button>
@@ -173,8 +174,8 @@
       </div>
     </Transition>
 
-    <section class="pt-32 max-w-7xl mx-auto px-6 lg:px-16 relative z-10" data-aos="fade-up" data-aos-duration="1000">
-      <div class="bg-white border border-stone-200/60 p-10 md:p-16 relative overflow-hidden">
+    <section class="pt-12 md:pt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 relative z-10" data-aos="fade-up" data-aos-duration="1000">
+      <div class="bg-white border border-stone-200/60 p-6 sm:p-10 md:p-16 relative overflow-hidden">
         
         <div class="max-w-3xl mb-20">
           <span class="text-xs text-[#D4AF37] uppercase tracking-[0.4em] font-bold block mb-3">// Our Signature Approach</span>

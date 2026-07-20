@@ -1,12 +1,12 @@
 <template>
-  <section id="gift-cards" class="py-36 bg-white text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
+  <section id="gift-cards" class="py-16 md:py-36 bg-white text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
     
     <!-- HIGH-FASHION FINE ARCHITECTURAL ACCENTS -->
     <div class="absolute inset-y-0 left-12 w-px bg-stone-100 hidden lg:block"></div>
     <div class="absolute inset-y-0 right-12 w-px bg-stone-100 hidden lg:block"></div>
     <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#FAF6F0]/60 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-16 relative z-10 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 relative z-10 text-center">
       
       <!-- HERO CONTENT CONTROL ACCENT -->
       <div class="max-w-3xl mx-auto mb-24 space-y-4" data-aos="fade-up" data-aos-duration="1000">

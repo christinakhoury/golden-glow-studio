@@ -1,6 +1,6 @@
 <template>
   <div class="body-font bg-[#FAF7EF] flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-md bg-white shadow-xl rounded-3xl p-10 border border-gray-100">
+    <div class="w-full max-w-md bg-white shadow-xl rounded-3xl p-6 sm:p-10 border border-gray-100 mx-4">
       <h1 class="heading-font text-4xl font-bold text-center text-[#D4AF37] mb-2">Golden Glow</h1>
       
       <p class="text-center text-gray-500 mb-8">

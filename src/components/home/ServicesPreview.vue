@@ -1,9 +1,9 @@
 <template>
-  <section id="services" class="py-28 bg-[#faf8f5] relative">
-    <div class="max-w-7xl mx-auto px-6">
+  <section id="services" class="py-16 md:py-28 bg-[#faf8f5] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
       <!-- HEADER -->
-      <div class="mb-20 text-left max-w-xl">
+      <div class="mb-10 md:mb-20 text-left max-w-xl">
         <span class="text-[#D4AF37] tracking-[0.3em] text-xs uppercase font-semibold block mb-3">
           Menu
         </span>
@@ -14,10 +14,10 @@
       </div>
 
       <!-- EDITORIAL INTERACTIVE SPLIT DESIGN -->
-      <div class="flex flex-col lg:flex-row gap-12 items-stretch min-h-[500px]">
+      <div class="flex flex-col lg:flex-row gap-8 md:gap-12 items-stretch min-h-[300px] md:min-h-[500px]">
         
         <!-- LEFT SCREEN: THE DYNAMIC LIVE CANVAS -->
-        <div class="w-full lg:w-5/12 relative overflow-hidden bg-stone-900 group">
+        <div class="w-full lg:w-5/12 relative overflow-hidden bg-stone-900 group min-h-[260px] sm:min-h-[320px] md:min-h-[400px] lg:min-h-0">
           <transition-group name="luxury-fade">
             <div 
               v-for="(service, index) in services" 
@@ -38,13 +38,13 @@
         </div>
 
         <!-- RIGHT SCREEN: THE MINIMALIST LIST INDEX -->
-        <div class="w-full lg:w-7/12 flex flex-col justify-center divide-y divide-stone-200/60 border-t border-b border-stone-200/60">
+        <div class="w-full lg:w-7/12 flex flex-col justify-center divide-y divide-stone-200/60 border-t border-stone-200/60">
           <router-link
             v-for="(service, index) in services"
             :key="service.name"
             :to="service.link"
             @mouseenter="activeTrack = index"
-            class="group py-6 md:py-8 flex items-center justify-between transition-all duration-300 relative pl-0 hover:pl-4"
+            class="group py-4 md:py-8 flex items-center justify-between transition-all duration-300 relative pl-0 hover:pl-4"
           >
             <!-- Background highlight accent slide on hover -->
             <div class="flex items-start gap-6 max-w-xl">
@@ -55,7 +55,7 @@
                 <h3 class="font-playfair text-2xl md:text-3xl font-light text-stone-900 group-hover:text-[#D4AF37] transition-colors duration-300">
                   {{ service.name }}
                 </h3>
-                <p class="text-stone-500 text-xs md:text-sm font-light mt-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 max-h-0 md:group-hover:max-h-16 overflow-hidden transition-all duration-500 ease-out leading-relaxed">
+                <p class="text-stone-500 text-xs md:text-sm font-light mt-2 opacity-100 max-h-16 md:opacity-0 md:group-hover:opacity-100 md:max-h-0 md:group-hover:max-h-16 overflow-hidden transition-all duration-500 ease-out leading-relaxed">
                   {{ service.desc }}
                 </p>
               </div>

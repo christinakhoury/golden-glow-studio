@@ -1,11 +1,11 @@
 <template>
-  <section id="reviews" class="py-36 bg-white relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
+  <section id="reviews" class="py-16 md:py-36 bg-white relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
     
   
     <div class="absolute inset-y-0 left-1/3 w-px bg-stone-200/40 hidden lg:block"></div>
     <div class="absolute inset-y-0 left-2/3 w-px bg-stone-200/40 hidden lg:block"></div>
 
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
       
       <!-- STRIKING ASYMMETRICAL HEADER -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-20 items-end border-b border-stone-200">
@@ -13,7 +13,7 @@
           <span class="text-[#D4AF37] text-xs tracking-[0.5em] uppercase font-bold block mb-3">
             // VERIFIED JOURNAL ENTRANCE
           </span>
-          <h2 class="text-5xl md:text-7xl font-light text-stone-900 tracking-tighter leading-[0.95]" style="font-family: 'Playfair Display', serif;">
+          <h2 class="text-3xl sm:text-5xl md:text-7xl font-light text-stone-900 tracking-tighter leading-[0.95]" style="font-family: 'Playfair Display', serif;">
             What Our <br><span class="italic font-serif font-normal text-[#D4AF37]">Beloved</span> Clients Say
           </h2>
         </div>
@@ -25,7 +25,7 @@
       </div>
 
       <!-- DESIGN FORWARD STAGGERED GRID PACK -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mt-20">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mt-10 md:mt-20">
         <div 
           v-for="(review, idx) in reviews" 
           :key="review.name" 

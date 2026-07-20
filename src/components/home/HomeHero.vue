@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="relative bg-[#FAF8F5] pt-14 md:pt-16 overflow-hidden">
+  <section id="home" class="relative bg-[#FAF8F5] pt-16 md:pt-20 overflow-hidden">
     <div class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh] md:min-h-screen">
 
       <div

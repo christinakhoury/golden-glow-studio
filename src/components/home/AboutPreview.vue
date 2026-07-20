@@ -1,11 +1,11 @@
 <template>
-  <section id="aboutus" class="py-32 bg-[#FAF8F5] relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
+  <section id="aboutus" class="py-16 md:py-32 bg-[#FAF8F5] relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/10">
     <!-- Premium Geometric Architectural Accents -->
     <div class="absolute inset-y-0 left-1/2 w-px bg-stone-200/40 hidden lg:block"></div>
     <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#F5E6D8]/20 rounded-full blur-3xl pointer-events-none"></div>
     
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24 items-center">
         
         <!-- LEFT COLUMN: HIGH-VISUAL EDITORIAL FRAMING BLOCK (Takes 5 spans) -->
         <div class="lg:col-span-5 relative" data-aos="fade-right" data-aos-duration="1000">

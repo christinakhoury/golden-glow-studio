@@ -1,8 +1,8 @@
 <template>
-  <section id="specialists" class="py-32 bg-white relative overflow-hidden font-sans antialiased selection:bg-amber-100">
+  <section id="specialists" class="py-16 md:py-32 bg-white relative overflow-hidden font-sans antialiased selection:bg-amber-100">
     
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
         
         <!-- LEFT COLUMN: Fixed Editorial Master Header (Takes 4 spans) -->
         <div class="lg:col-span-4 lg:sticky lg:top-36 space-y-8 animate-fade-scale">
@@ -30,7 +30,7 @@
         </div>
 
         <!-- RIGHT COLUMN: Premium Lookbook Carousel Frame (Takes 8 spans) -->
-        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 pt-4">
+        <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-2 md:pt-4">
           <div
             v-for="(person, idx) in specialists"
             :key="person.name"

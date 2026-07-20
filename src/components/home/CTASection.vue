@@ -1,5 +1,5 @@
 <template>
-  <section id="cta-glow" class="py-36 bg-gradient-to-br from-[#FAF6F0] via-[#F3E1D3] to-[#E06A4E]/30 text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/20 border-t border-stone-100">
+  <section id="cta-glow" class="py-16 md:py-36 bg-gradient-to-br from-[#FAF6F0] via-[#F3E1D3] to-[#E06A4E]/30 text-stone-900 relative overflow-hidden font-sans antialiased selection:bg-[#D4AF37]/20 border-t border-stone-100">
     
     <!-- LUXURY GLASSMORPHISM REFRAC BACKGROUNDS -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/40 rounded-full blur-[120px] pointer-events-none"></div>
@@ -7,7 +7,7 @@
     <div class="absolute left-12 inset-y-0 w-px bg-stone-900/5 hidden lg:block"></div>
     <div class="absolute right-12 inset-y-0 w-px bg-stone-900/5 hidden lg:block"></div>
 
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in" data-aos-duration="1200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10" data-aos="zoom-in" data-aos-duration="1200">
       
       <!-- MINIMALIST GRAPHIC EMBLEM -->
       <div class="flex items-center justify-center gap-3 mb-10">

@@ -1,10 +1,10 @@
 <template>
-  <footer class="bg-[#1C1C1C] text-white py-16">
+  <footer class="bg-[#1C1C1C] text-white py-10 md:py-16">
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
 
       <!-- BRAND -->
-      <div>
+      <div class="col-span-2 md:col-span-1">
         <h2 class="text-2xl font-bold text-[#D4AF37]">
           Golden Glow Studio
         </h2>
@@ -58,7 +58,7 @@
     </div>
 
     <!-- COPYRIGHT -->
-    <div class="max-w-7xl mx-auto px-6 flex justify-between text-xs text-white/30 mt-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between gap-2 text-xs text-white/30 mt-8 md:mt-10">
       <p>© 2025 Golden Glow Studio</p>
       <p>Privacy Policy · Terms</p>
     </div>
