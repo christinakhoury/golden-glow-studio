@@ -210,12 +210,32 @@ export const useWishlistStore = defineStore('wishlist', () => {
   async function clearWishlist() {
     console.log('[WISHLIST CLEAR] clearing', items.value.length, 'items')
     const itemsToClear = [...items.value]
+
+    // Clear local state immediately so the UI updates right away
     items.value = []
     saveWishlist()
 
+    if (!isAuthenticated()) return
+
+    // Make direct API calls instead of going through syncItem().
+    // syncItem() calls fetchWishlist() after each removal which would
+    // re-populate items.value from the server before all removes are
+    // done — causing the wishlist to flicker back momentarily.
     for (const item of itemsToClear) {
-      await syncItem(item.variantId, 'remove')
+      try {
+        await axios.post(
+          WISHLIST_API_URL,
+          { item_id: item.variantId, action: 'remove' },
+          { headers: getAuthHeaders(), withCredentials: true }
+        )
+        console.log('[WISHLIST CLEAR] removed item:', item.variantId)
+      } catch (e) {
+        console.error('[WISHLIST CLEAR] failed to remove item:', item.variantId, e.message)
+      }
     }
+
+    // Single fetch at the end to confirm server state
+    await fetchWishlist()
   }
 
   async function setUser(email) {

@@ -1,0 +1,54 @@
+Please fix the following issues in the website:
+
+### 1. Cart functionality
+
+* Fix the "Add to Cart" functionality.
+* Currently, when adding an item to the cart, the item does not get added and the cart remains empty.
+* Debug the cart logic, state management, API calls, and localStorage handling.
+* Make sure products are correctly added, displayed in the cart, quantities update correctly, and the cart total updates properly.
+* Ensure the cart works for both logged-in users and guests.
+
+### 2. Clear Cart functionality
+
+* Fix the "Clear Cart" button so that it actually removes all items from the cart.
+* Make sure the cart state, UI, localStorage, and backend synchronization (if applicable) are all updated after clearing.
+* After clearing, the cart should display as empty.
+
+### 3. Wishlist functionality
+
+* Fix the "Clear Wishlist" button so that it correctly removes all wishlist items.
+* Make sure the wishlist state and UI update immediately after clearing.
+* Ensure wishlist data remains synchronized correctly.
+
+### 4. User profile information after login/sign in
+
+* Fix the issue where user information does not appear in the Profile page after logging in.
+* Currently, the user logs in successfully but their information is not displayed.
+* Ensure user data (such as first name, last name, email, phone/mobile number, and any available profile information) is correctly stored and loaded after authentication.
+
+### 5. Checkout user information
+
+* Fix the checkout process so that user information is automatically displayed whenever a user is authenticated.
+* The information should appear after:
+
+  * Login
+  * Sign up / registration
+* Do not require the user to log in again or refresh the page.
+* Make sure authentication state is correctly shared across the application.
+
+### 6. General requirements
+
+* Keep the current design and styling.
+* Do not remove existing features.
+* Debug the root causes instead of adding temporary fixes.
+* Check all related files (stores/composables, authentication logic, API services, localStorage handling, cart/wishlist components, profile page, and checkout page).
+* Test all flows:
+
+  * Guest user adds item to cart
+  * Logged-in user adds item to cart
+  * Clear cart
+  * Add/remove wishlist items
+  * Clear wishlist
+  * Login → Profile page
+  * Login → Checkout page
+  * Sign up → Profile and Checkout

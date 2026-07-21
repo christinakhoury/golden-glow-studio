@@ -573,6 +573,51 @@ export function getAuthToken() {
   return localStorage.getItem('gg-token')
 }
 
+/**
+ * Fetches the logged-in customer's profile from the API.
+ * osimart's /auth/login/ response only returns token + user_id — it never
+ * echoes back first_name / last_name / mobile. This endpoint retrieves those
+ * fields after a successful login so the profile page and checkout form can
+ * show real user data.
+ *
+ * Returns the raw profile object on success, or null if the request fails
+ * (e.g. network error, 404, expired token). Callers should always fall back
+ * to cached data when null is returned.
+ */
+export async function fetchUserProfile() {
+  const token = getAuthToken()
+  if (!token) return null
+
+  // Try the most common osimart profile endpoint patterns.
+  const candidates = [
+    storeUrl('/auth/profile/'),
+    storeUrl('/auth/me/'),
+    storeUrl('/store/apis/customer/profile/'),
+    storeUrl('/store/apis/customer/me/'),
+  ]
+
+  for (const url of candidates) {
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `JWT ${token}`
+        }
+      })
+      if (res.ok) {
+        const data = await res.json()
+        console.log('[osimart] fetchUserProfile success at', url, data)
+        return data
+      }
+    } catch {
+      // try next candidate
+    }
+  }
+
+  console.log('[osimart] fetchUserProfile: no profile endpoint found (will use cached data)')
+  return null
+}
+
 export function logout() {
   localStorage.removeItem('gg-token')
   localStorage.removeItem('gg-refresh')

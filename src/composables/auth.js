@@ -12,6 +12,7 @@ import {
   refreshAuthToken as apiRefreshAuthToken,
   saveAuthSession,
   getAuthToken,
+  fetchUserProfile,
   logout as apiLogout
 } from '../services/login'
 import { storeUrl } from '../services/osimartConfig'
@@ -48,6 +49,19 @@ export const useAuthStore = defineStore('auth', () => {
       isAuthenticated.value = true
       showAuthModal.value = false
       cartStore.setUser(user.value.email)
+
+      // Try to fetch the full profile from the API (best-effort).
+      // osimart's login response only returns token + user_id — no name or
+      // mobile — so without this step the profile page would show blank
+      // fields on first login on a new device (before the profile cache is
+      // seeded by a previous signup on the same device).
+      fetchUserProfile().then(profile => {
+        if (!profile) return
+        saveAuthSession(profile, { email })
+        const refreshed = JSON.parse(localStorage.getItem('gg-user') || '{}')
+        user.value = hydrateUser({ ...user.value, ...refreshed })
+      }).catch(() => { /* no-op — cached data is used as fallback */ })
+
       return true
     } catch (error) {
       console.error('Login action failed:', error.message)

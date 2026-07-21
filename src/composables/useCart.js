@@ -283,10 +283,22 @@ const syncItem = async (variantId, deltaQuantity, action) => {
     })
     console.log("[SYNC] success response:", res.data)
 
-    await fetchRemoteCart()
+    // Only sync back from server for authenticated users.
+    // For guests the server may not maintain a session-based cart, so
+    // calling fetchRemoteCart() would overwrite the local (correct) state
+    // with an empty server response.
+    if (isAuthenticated()) {
+      await fetchRemoteCart()
+    }
   } catch (e) {
     console.error("[SYNC] ERROR", e.response?.status, e.response?.data || e.message)
-    throw e
+    // Only propagate the error for authenticated users so that the
+    // optimistic rollback in addToCart / removeFromCart / etc. fires.
+    // For guests we swallow the error and keep the local state intact —
+    // the guest cart is managed purely in localStorage.
+    if (isAuthenticated()) {
+      throw e
+    }
   }
 }
 
@@ -429,7 +441,12 @@ const clearCart = async () => {
     }
   }
 
-  await fetchRemoteCart();
+  // Only re-fetch from server for authenticated users. For guests,
+  // fetchRemoteCart() may return a stale or empty server response that
+  // could incorrectly repopulate items we just cleared locally.
+  if (isAuthenticated()) {
+    await fetchRemoteCart();
+  }
 };
 
 const syncCartForCheckout = async () => {
